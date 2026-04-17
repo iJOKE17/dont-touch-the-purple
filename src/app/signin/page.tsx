@@ -34,7 +34,7 @@ export default function SignInPage() {
     <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
 
       {/* Card */}
-      <div className="w-full max-w-xs bg-black/40 backdrop-blur-sm rounded-xl border border-[#08F7FE]/30 p-6 flex flex-col items-center gap-6">
+      <div className="w-full max-w-md bg-black/40 backdrop-blur-sm rounded-xl border border-[#08F7FE]/30 p-6 flex flex-col items-center gap-6">
         <h2 className="text-sm md:text-base font-bold uppercase tracking-widest text-[#08F7FE] glow-text-blue text-center">
           Sign in to save your score
         </h2>
@@ -59,6 +59,7 @@ export default function SignInPage() {
           <p className="text-xs text-[#FF3131] text-center">{error}</p>
         )}
       </div>
+ 
 
       {/* Back */}
       <button

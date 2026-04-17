@@ -82,7 +82,7 @@ export default function PlayPage() {
   );
 
   return (
-    <main className="h-full pt-16 relative">
+    <main className="h-full pt-12 pb-10 relative">
       <GamePlay
         score={score}
         timeRemaining={timeRemaining}

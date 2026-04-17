@@ -37,10 +37,10 @@ export default function Footer() {
         ))}
       </nav>
       <div className="flex items-center gap-4">
-        <span className="flex items-center gap-1 text-[10px] text-white/40">
+        {/* <span className="flex items-center gap-1 text-[10px] text-white/40">
           <IncognitoIcon />
           incognito
-        </span>
+        </span> */}
         <span className="flex items-center gap-1 text-[10px] text-white/40">
           <VersionIcon />
           v{process.env.npm_package_version ?? "0.1.0"}
