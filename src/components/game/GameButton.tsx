@@ -21,15 +21,17 @@ const GLOW_CLASS: Record<string, string> = {
   yellow: "glow-yellow",
   blue: "glow-blue",
   purple: "glow-purple",
+  rainbow: "rainbow-btn",
 };
 
-const TARGET_COLORS = new Set(["orange", "green", "yellow", "blue"]);
+const TARGET_COLORS = new Set(["orange", "green", "yellow", "blue", "rainbow"]);
 
 export default function GameButton({ state, index, onPress }: GameButtonProps) {
   const isActive = state !== "default" && state !== "pressed";
-  const bgColor = isActive
-    ? NEON_COLORS[state as keyof typeof NEON_COLORS]
-    : BUTTON_DEFAULT_COLOR;
+  const bgColor =
+    isActive && state !== "rainbow"
+      ? NEON_COLORS[state as keyof typeof NEON_COLORS]
+      : BUTTON_DEFAULT_COLOR;
   const glowClass = isActive ? GLOW_CLASS[state] ?? "" : "";
   const borderColor = isActive
     ? NEON_COLORS[state as keyof typeof NEON_COLORS]
@@ -43,7 +45,11 @@ export default function GameButton({ state, index, onPress }: GameButtonProps) {
       const id = nextId.current++;
       setLabels((prev) => [
         ...prev,
-        { id, text: "+1", color: "#39FF14" },
+        {
+          id,
+          text: state === "rainbow" ? "+5" : "+1",
+          color: state === "rainbow" ? "#FFF01F" : "#39FF14",
+        },
       ]);
       setTimeout(() => setLabels((prev) => prev.filter((l) => l.id !== id)), 850);
     } else if (state === "purple") {
@@ -78,13 +84,18 @@ export default function GameButton({ state, index, onPress }: GameButtonProps) {
           active:scale-95 active:brightness-75
         `}
         style={{
-          backgroundColor: bgColor,
-          borderColor,
+          ...(state !== "rainbow" && { background: bgColor, borderColor }),
           touchAction: "manipulation",
         }}
       >
         {/* Bevel highlight */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+        <div
+          className={`absolute inset-0 rounded-2xl pointer-events-none ${
+            state === "rainbow"
+              ? "bg-gradient-to-b from-white/25 to-transparent"
+              : "bg-gradient-to-b from-white/10 to-transparent"
+          }`}
+        />
       </button>
 
       {/* Floating score labels — rendered outside the button so they're not clipped */}

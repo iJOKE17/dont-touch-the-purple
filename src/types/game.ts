@@ -1,4 +1,10 @@
-export type ButtonColor = "orange" | "green" | "yellow" | "blue" | "purple";
+export type ButtonColor =
+  | "orange"
+  | "green"
+  | "yellow"
+  | "blue"
+  | "purple"
+  | "rainbow";
 
 export type ButtonState = "default" | "pressed" | ButtonColor;
 
@@ -16,7 +22,6 @@ export interface GameState {
 export interface GameStats {
   correctTaps: number;
   purpleTaps: number;
-  defaultTaps: number;
 }
 
 export interface Score {
@@ -39,6 +44,7 @@ export const NEON_COLORS: Record<ButtonColor, string> = {
   yellow: "#FFF01F",
   blue: "#08F7FE",
   purple: "#BF00FF",
+  rainbow: "#FF4FD8",
 };
 
 export const BUTTON_DEFAULT_COLOR = "#4A4A4A";

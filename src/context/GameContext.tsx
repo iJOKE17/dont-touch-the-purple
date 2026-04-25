@@ -12,7 +12,14 @@ import { ButtonState, ButtonColor, GameStats, Score } from "@/types/game";
 import { getTopScores } from "@/lib/firebase";
 import { useAuth } from "@/context/AuthContext";
 
-const ACTIVE_COLORS: ButtonColor[] = ["orange", "green", "yellow", "blue", "purple"];
+const ACTIVE_COLORS: ButtonColor[] = [
+  "orange",
+  "green",
+  "yellow",
+  "blue",
+  "purple",
+  "rainbow",
+];
 const GUEST_HS_KEY = "guest_high_score";
 
 export function randomButtons(): ButtonState[] {
@@ -49,7 +56,6 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   const [stats, setStats] = useState<GameStats>({
     correctTaps: 0,
     purpleTaps: 0,
-    defaultTaps: 0,
   });
   const [buttons, setButtons] = useState<ButtonState[]>(Array(8).fill("default"));
   const [leaderboard, setLeaderboard] = useState<Score[]>([]);
@@ -72,7 +78,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
 
   const startGame = useCallback(() => {
     setScore(0);
-    setStats({ correctTaps: 0, purpleTaps: 0, defaultTaps: 0 });
+    setStats({ correctTaps: 0, purpleTaps: 0 });
     setButtons(randomButtons());
     router.push("/play");
   }, [router]);

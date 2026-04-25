@@ -58,6 +58,61 @@ body {
     inset 0 0 20px color-mix(in srgb, var(--neon-purple) 25%, transparent);
 }
 
+.rainbow-btn {
+  background: linear-gradient(
+    135deg,
+    #ff3131,
+    #ff6b00,
+    #fff01f,
+    #39ff14,
+    #08f7fe,
+    #bf00ff,
+    #ff3131
+  );
+  background-size: 300% 300%;
+  animation:
+    rainbow-flow 3s ease infinite,
+    rainbow-border-shine 1.5s linear infinite,
+    rainbow-glow-grow 2s ease-in-out infinite;
+}
+
+@keyframes rainbow-flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes rainbow-border-shine {
+  0%   { border-color: #ff3131; }
+  17%  { border-color: #ff6b00; }
+  33%  { border-color: #fff01f; }
+  50%  { border-color: #39ff14; }
+  67%  { border-color: #08f7fe; }
+  83%  { border-color: #bf00ff; }
+  100% { border-color: #ff3131; }
+}
+
+@keyframes rainbow-glow-grow {
+  0%, 100% {
+    box-shadow:
+      0 0 12px #ff3131,
+      0 0 20px #ff6b00,
+      0 0 28px #39ff14,
+      0 0 36px #08f7fe,
+      0 0 44px #bf00ff,
+      inset 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 22px #ff3131,
+      0 0 40px #ff6b00,
+      0 0 58px #39ff14,
+      0 0 76px #08f7fe,
+      0 0 94px #bf00ff,
+      inset 0 0 28px rgba(255, 255, 255, 0.45);
+  }
+}
+
 /* ─── Text glow classes ─── */
 
 .glow-text-white {

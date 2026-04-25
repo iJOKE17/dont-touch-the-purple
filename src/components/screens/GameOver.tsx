@@ -55,12 +55,6 @@ export default function GameOver({
           pts={`-${stats.purpleTaps * 3} pts`}
           ptsColor="text-[#BF00FF]"
         />
-        <StatRow
-          label="Default Taps:"
-          count={stats.defaultTaps}
-          pts={`-${stats.defaultTaps} pts`}
-          ptsColor="text-[#FF3131]"
-        />
       </div>
 
       {/* Action buttons */}

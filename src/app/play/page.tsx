@@ -67,6 +67,9 @@ export default function PlayPage() {
       if (state === "purple") {
         setScore((s) => s - 3);
         setStats((s) => ({ ...s, purpleTaps: s.purpleTaps + 1 }));
+      } else if (state === "rainbow") {
+        setScore((s) => s + 5);
+        setStats((s) => ({ ...s, correctTaps: s.correctTaps + 1 }));
       } else {
         setScore((s) => s + 1);
         setStats((s) => ({ ...s, correctTaps: s.correctTaps + 1 }));
