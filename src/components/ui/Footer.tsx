@@ -16,9 +16,9 @@ const navLinks = [
   { label: "github", icon: <GithubIcon />, href: "#" },
   // { label: "discord", icon: <DiscordIcon />, href: "#" },
   // { label: "twitter", icon: <TwitterIcon />, href: "#" },
-  { label: "terms", icon: <TermsIcon />, href: "#" },
-  { label: "security", icon: <SecurityIcon />, href: "#" },
-  { label: "privacy", icon: <PrivacyIcon />, href: "#" },
+  { label: "terms", icon: <TermsIcon />, href: "/terms" },
+  // { label: "security", icon: <SecurityIcon />, href: "#" },
+  { label: "privacy", icon: <PrivacyIcon />, href: "/privacy" },
 ];
 
 export default function Footer() {
