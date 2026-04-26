@@ -11,8 +11,8 @@ import IncognitoIcon from "@/components/icon/IncognitoIcon";
 import VersionIcon from "@/components/icon/VersionIcon";
 
 const navLinks = [
-  { label: "contact", icon: <ContactIcon />, href: "#" },
-  { label: "support", icon: <SupportIcon />, href: "#" },
+  { label: "contact", icon: <ContactIcon />, href: "/contact" },
+  // { label: "support", icon: <SupportIcon />, href: "#" },
   {
     label: "github",
     icon: <GithubIcon />,
