@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Orbitron } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { AuthProvider } from "@/context/AuthContext";
 import { GameProvider } from "@/context/GameContext";
 import Footer from "@/components/ui/Footer";
@@ -31,6 +32,7 @@ export default function RootLayout({
           <GameProvider>{children}</GameProvider>
         </AuthProvider>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
