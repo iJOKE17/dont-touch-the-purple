@@ -13,7 +13,11 @@ import VersionIcon from "@/components/icon/VersionIcon";
 const navLinks = [
   { label: "contact", icon: <ContactIcon />, href: "#" },
   { label: "support", icon: <SupportIcon />, href: "#" },
-  { label: "github", icon: <GithubIcon />, href: "#" },
+  {
+    label: "github",
+    icon: <GithubIcon />,
+    href: "https://github.com/iJOKE17/dont-touch-the-purple",
+  },
   // { label: "discord", icon: <DiscordIcon />, href: "#" },
   // { label: "twitter", icon: <TwitterIcon />, href: "#" },
   { label: "terms", icon: <TermsIcon />, href: "/terms" },
