@@ -1,7 +1,9 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, onAuthStateChanged, User } from "@/lib/firebase";
+import { auth, onAuthStateChanged, submitScore, User } from "@/lib/firebase";
+
+const GUEST_HS_KEY = "guest_high_score";
 
 interface AuthContextValue {
   user: User | null;
@@ -15,7 +17,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (u) => {
+    const unsubscribe = onAuthStateChanged(auth, async (u) => {
+      if (u) {
+        const saved = localStorage.getItem(GUEST_HS_KEY);
+        if (saved) {
+          const guestScore = parseInt(saved, 10);
+          if (!isNaN(guestScore) && guestScore > 0) {
+            try {
+              await submitScore(u.displayName || u.email || "Player", guestScore, u.uid);
+            } catch (err) {
+              console.error("Failed to migrate guest score:", err);
+            }
+          }
+          localStorage.removeItem(GUEST_HS_KEY);
+        }
+      }
       setUser(u);
       setLoading(false);
     });
