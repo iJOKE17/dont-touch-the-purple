@@ -11,6 +11,15 @@ const nextConfig: NextConfig = {
     "@firebase/component",
     "@firebase/logger",
   ],
+  async rewrites() {
+    return [
+      {
+        source: "/__/auth/:path*",
+        destination:
+          "https://dont-touch-the-purple-41095.firebaseapp.com/__/auth/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
