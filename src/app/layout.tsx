@@ -6,6 +6,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import { GameProvider } from "@/context/GameContext";
 import Footer from "@/components/ui/Footer";
 import Header from "@/components/ui/Header";
+import { Analytics } from "@vercel/analytics/next";
 
 const orbitron = Orbitron({
   variable: "--font-orbitron-var",
